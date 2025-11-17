@@ -11,7 +11,8 @@ describe('CreatePaymentLink Use Case', () => {
     mockRepository = {
       create: vi.fn(),
       getById: vi.fn(),
-      processPayment: vi.fn()
+      processPayment: vi.fn(),
+      processPaymentWithCard: vi.fn()
     }
     useCase = new CreatePaymentLink(mockRepository)
   })

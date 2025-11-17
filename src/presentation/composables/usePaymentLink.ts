@@ -46,7 +46,7 @@ export function usePaymentLink() {
   return {
     loading: readonly(loading),
     error: readonly(error),
-    paymentLink: readonly(paymentLink),
+    paymentLink: paymentLink,
     fetchPaymentLink,
     reset
   }

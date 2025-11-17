@@ -12,7 +12,6 @@
         :class="{ 'form-input--error': errors.merchantName }"
         placeholder="Ej: Mi Tienda Online"
         required
-        @blur="validateMerchantName"
       />
       <span v-if="errors.merchantName" class="form-error">{{ errors.merchantName }}</span>
     </div>
@@ -27,7 +26,6 @@
         placeholder="Describe el concepto del pago (mínimo 10 caracteres)"
         rows="3"
         required
-        @blur="validateDescription"
       ></textarea>
       <span v-if="errors.description" class="form-error">{{ errors.description }}</span>
     </div>
@@ -44,7 +42,6 @@
         :class="{ 'form-input--error': errors.amount }"
         placeholder="0.00"
         required
-        @blur="validateAmount"
       />
       <span v-if="errors.amount" class="form-error">{{ errors.amount }}</span>
     </div>

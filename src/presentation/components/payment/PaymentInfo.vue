@@ -123,7 +123,6 @@ import type { FxConversion } from '@/domain/entities/FxConversion'
 import type { FeesByType } from '@/presentation/composables/useFeeCalculator'
 import { useCountdown } from '@/presentation/composables/useCountdown'
 import { useFeeLabels } from '@/presentation/composables/useFeeLabels'
-import { convertUsdToMxn } from '@/utils/formatters'
 
 /**
  * Payment Info Component
@@ -147,11 +146,6 @@ const { timeRemaining, isExpiringRapidly, startCountdown, stopCountdown } = useC
   props.paymentLink.expires_at
 )
 const { getFeeLabelForType } = useFeeLabels()
-
-// Computed properties
-const mxnAmount = computed(() => {
-  return convertUsdToMxn(props.paymentLink.amount_usd)
-})
 
 const finalAmount = computed(() => {
   if (props.feeCalculation) {

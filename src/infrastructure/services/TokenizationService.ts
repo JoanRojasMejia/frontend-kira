@@ -1,5 +1,3 @@
-import { apiClient, type ApiError } from '../http/apiClient'
-
 /**
  * Card data for tokenization
  */

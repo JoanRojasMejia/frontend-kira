@@ -35,11 +35,17 @@
 
         <!-- Payment Error -->
         <PaymentStatusView
-          v-else-if="paymentError || (paymentResult && (paymentResult.status === 'error' || paymentResult.status === 'failed'))"
+          v-else-if="
+            paymentError ||
+            (paymentResult &&
+              (paymentResult.status === 'error' || paymentResult.status === 'failed'))
+          "
           status="error"
           :error-message="
             paymentError ||
-            ((paymentResult?.status === 'error' || paymentResult?.status === 'failed') ? paymentResult.error_message : undefined)
+            (paymentResult?.status === 'error' || paymentResult?.status === 'failed'
+              ? paymentResult.error_message
+              : undefined)
           "
           @retry="handleRetryPayment"
         />
@@ -47,9 +53,9 @@
         <!-- Valid Link - Show Payment Form -->
         <div v-else-if="paymentLink" class="payment-container-inner">
           <PaymentInfo
-            :payment-link="paymentLink"
-            :fee-calculation="feeCalculation"
-            :fees-by-type="feesByType"
+            :payment-link="paymentLink as PaymentLink"
+            :fee-calculation="feeCalculation as FeeCalculation"
+            :fees-by-type="feesByType as FeesByType"
             :loading-fees="loadingFees"
             :fx-conversion="fxConversion"
             :loading-fx-conversion="loadingFxConversion"
@@ -92,6 +98,9 @@ import CreditCardForm from '@/presentation/components/payment/CreditCardForm.vue
 import PaymentStatusView from '@/presentation/components/payment/PaymentStatusView.vue'
 import LoadingSpinner from '@/presentation/components/shared/LoadingSpinner.vue'
 import ErrorMessage from '@/presentation/components/shared/ErrorMessage.vue'
+import type { PaymentLink } from '@/domain/entities/PaymentLink'
+import type { FeeCalculation } from '@/domain/entities/FeeCalculation'
+import type { FeesByType } from '@/presentation/composables/useFeeCalculator'
 
 /**
  * Payment View
@@ -132,16 +141,13 @@ const { token, tokenize, reset: resetTokenization } = useTokenization()
 
 const {
   loading: loadingFees,
-  error: feesError,
   feeCalculation,
   feesByType,
   calculateFees,
-  reset: resetFees
 } = useFeeCalculator()
 
 const {
   loading: loadingFxConversion,
-  error: fxError,
   fxConversion,
   getConversion,
   reset: resetFxConversion

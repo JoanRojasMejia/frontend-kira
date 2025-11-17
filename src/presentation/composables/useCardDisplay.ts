@@ -12,7 +12,7 @@ const CARD_MASKS = {
  * Composable for credit card display logic
  * Handles card masks, month/year extraction, and visual formatting
  */
-export function useCardDisplay(cardNumber: string, cardBrand: string, expirationDate: string) {
+export function useCardDisplay(_: string, cardBrand: string, expirationDate: string) {
   /**
    * Get card number mask based on card brand
    */

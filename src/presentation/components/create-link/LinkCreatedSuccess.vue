@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <button @click="$emit('createAnother')" class="create-another-button">Crear Otro Link</button>
+    <button @click="emit('createAnother')" class="create-another-button">Crear Otro Link</button>
   </div>
 </template>
 

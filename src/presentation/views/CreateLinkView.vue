@@ -13,7 +13,7 @@
 
       <LinkCreatedSuccess
         v-else-if="paymentLink"
-        :payment-link="paymentLink"
+        :payment-link="paymentLink as PaymentLink"
         @create-another="handleCreateAnother"
       />
 
@@ -29,6 +29,7 @@ import CreateLinkForm from '@/presentation/components/create-link/CreateLinkForm
 import LinkCreatedSuccess from '@/presentation/components/create-link/LinkCreatedSuccess.vue'
 import LoadingSpinner from '@/presentation/components/shared/LoadingSpinner.vue'
 import ErrorMessage from '@/presentation/components/shared/ErrorMessage.vue'
+import type { PaymentLink } from '@/domain/entities/PaymentLink'
 
 /**
  * Create Link View

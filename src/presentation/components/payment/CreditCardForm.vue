@@ -131,7 +131,7 @@
           <div class="card-item__cvv">
             <div class="card-item__cvvTitle">CVV</div>
             <div class="card-item__cvvBand">
-              <span v-for="(n, index) in cvv" :key="index">*</span>
+              <span v-for="(_, index) in cvv" :key="index">*</span>
             </div>
             <div class="card-item__type">
               <img
@@ -296,14 +296,11 @@ const cardDateLabel = ref<HTMLElement | null>(null)
 const { isCardFlipped, flipCard, focusInput, blurInput } = useCardAnimation()
 
 // Use display composable
-const { amexCardMask, otherCardMask, getRandomBackground } = useCardDisplay(
+const { amexCardMask, otherCardMask } = useCardDisplay(
   props.cardNumber,
   props.cardBrand,
   props.expirationDate
 )
-
-// Random background for card
-const currentCardBackground = ref(getRandomBackground())
 
 // Card type image - computed reactively from props.cardBrand
 const cardTypeImage = computed(() => {

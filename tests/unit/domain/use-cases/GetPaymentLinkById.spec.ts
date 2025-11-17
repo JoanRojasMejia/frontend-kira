@@ -11,7 +11,8 @@ describe('GetPaymentLinkById Use Case', () => {
     mockRepository = {
       create: vi.fn(),
       getById: vi.fn(),
-      processPayment: vi.fn()
+      processPayment: vi.fn(),
+      processPaymentWithCard: vi.fn()
     }
     useCase = new GetPaymentLinkById(mockRepository)
   })
@@ -27,14 +28,10 @@ describe('GetPaymentLinkById Use Case', () => {
   })
 
   it('should throw error when ID is empty', async () => {
-    await expect(
-      useCase.execute('')
-    ).rejects.toThrow('Payment link ID is required')
+    await expect(useCase.execute('')).rejects.toThrow('Payment link ID is required')
   })
 
   it('should throw error when ID is whitespace', async () => {
-    await expect(
-      useCase.execute('   ')
-    ).rejects.toThrow('Payment link ID is required')
+    await expect(useCase.execute('   ')).rejects.toThrow('Payment link ID is required')
   })
 })

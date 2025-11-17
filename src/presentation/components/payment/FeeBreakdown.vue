@@ -18,7 +18,9 @@
       <!-- Original Amount -->
       <div class="fee-breakdown__row">
         <span class="fee-breakdown__label">Monto Original:</span>
-        <span class="fee-breakdown__value">{{ formatCurrency(feeCalculation.original_amount) }}</span>
+        <span class="fee-breakdown__value">{{
+          formatCurrency(feeCalculation.original_amount)
+        }}</span>
       </div>
 
       <!-- Applied Rules -->
@@ -64,14 +66,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import type { FeeCalculation, FeeRuleType } from '@/domain/entities/FeeCalculation'
 
 /**
  * Fee Breakdown Component
  * Displays a detailed breakdown of transaction fees
  */
-const props = defineProps<{
+defineProps<{
   feeCalculation: FeeCalculation | null
   loading?: boolean
   error?: string | null
