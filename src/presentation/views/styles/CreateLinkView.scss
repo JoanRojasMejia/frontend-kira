@@ -1,0 +1,23 @@
+@import '@/assets/styles/variables';
+@import '@/assets/styles/mixins';
+
+.create-link-view {
+  min-height: 100vh;
+  background: linear-gradient(30deg, $color-primary 0%, $color-black 50%, $color-primary 100%);
+  padding: $spacing-xl $spacing-md;
+  @include flex-center;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  @include flex-column;
+  @include flex-center;
+}
+
+@media (max-width: $breakpoint-sm) {
+  .create-link-view {
+    padding: $spacing-md $spacing-sm;
+  }
+}

@@ -1,0 +1,136 @@
+@import '@/assets/styles/variables';
+@import '@/assets/styles/mixins';
+
+.payment-status {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: $spacing-xl;
+}
+
+.status-container {
+  padding: $spacing-3xl;
+  background: $color-primary-light;
+  border: $border-width-thin solid $color-border-light;
+  border-radius: $border-radius-xl;
+  text-align: center;
+  font-family: $font-family-primary;
+}
+
+.status-icon {
+  font-size: 5rem;
+  margin-bottom: $spacing-lg;
+}
+
+.status-title {
+  margin: 0 0 $spacing-md 0;
+  @include heading($font-size-3xl);
+}
+
+.status-message {
+  margin: 0 0 $spacing-lg 0;
+  @include body-text($font-size-base);
+}
+
+.status-note {
+  margin: $spacing-lg 0 0 0;
+  @include small-text;
+}
+
+/* Success Styling */
+.status-success .status-title {
+  color: $color-primary;
+}
+
+/* Error Styling */
+.status-error .status-title {
+  color: $color-text-primary;
+}
+
+/* Expired Styling */
+.status-expired .status-title {
+  color: $color-text-primary;
+}
+
+/* Completed Styling */
+.status-completed .status-title {
+  color: $color-primary;
+}
+
+/* Transaction Info */
+.transaction-info {
+  margin: $spacing-lg 0;
+  padding: $spacing-lg;
+  background: rgba($color-white, 0.5);
+  border: $border-width-thin solid $color-border-light;
+  border-radius: $border-radius-lg;
+  text-align: left;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: $spacing-sm + 0.25rem 0;
+  border-bottom: $border-width-thin solid $color-border-light;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.info-label {
+  @include small-text;
+  font-weight: $font-weight-medium;
+  padding-right: $spacing-md;
+}
+
+.info-value {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.transaction-id {
+  font-family: $font-family-mono;
+}
+
+/* Action Buttons */
+.action-button {
+  @include button-base;
+}
+
+.retry-button {
+  @include button-primary;
+  box-shadow: 3px 10px 20px 0px rgba(210, 35, 178, 0.3);
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .payment-status {
+    padding: $spacing-md;
+  }
+
+  .status-container {
+    padding: $spacing-xl $spacing-lg;
+  }
+
+  .status-icon {
+    font-size: 4rem;
+  }
+
+  .status-title {
+    font-size: $font-size-2xl;
+  }
+
+  .info-row {
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+}

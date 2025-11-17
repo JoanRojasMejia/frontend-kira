@@ -1,0 +1,253 @@
+@import '@/assets/styles/variables';
+@import '@/assets/styles/mixins';
+
+.payment-info {
+  max-width: 570px;
+  padding: 5rem;
+  background: $color-primary-light;
+  border: $border-width-thin solid $color-border-light;
+  border-radius: $border-radius-xl 0 0 $border-radius-xl;
+  @include flex-column-gap($spacing-lg);
+  justify-content: center;
+
+  @include breakpoint($breakpoint-md) {
+    flex: 1;
+  }
+}
+
+.payment-title-wrapper {
+  @include flex-center;
+  margin-bottom: $spacing-lg;
+}
+
+.payment-logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.info-card {
+  padding: $spacing-lg;
+  background: $color-white;
+  border: $border-width-thin solid $color-border-light;
+  border-radius: $border-radius-md;
+  @include flex-column-gap($spacing-lg);
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.info-label {
+  @include small-text;
+  font-weight: $font-weight-medium;
+}
+
+.info-value {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  text-align: right;
+  max-width: 60%;
+  font-weight: $font-weight-semibold;
+
+  &--left {
+    text-align: left;
+    margin-top: $spacing-xs;
+    max-width: 100%;
+  }
+}
+
+.amount-display {
+  @include flex-column;
+  align-items: flex-end;
+  gap: $spacing-xs;
+}
+
+.amount-usd {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.amount-mxn {
+  @include small-text;
+}
+
+.summary {
+  border-top: $border-width-thin solid $color-border-light;
+  padding-top: $spacing-lg;
+  @include flex-column-gap($spacing-md);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $color-text-primary;
+
+  &--fee {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+  }
+
+  &--total-fee {
+    margin-top: $spacing-sm;
+    padding-top: $spacing-sm + 0.25rem;
+    border-top: $border-width-thin solid $color-border-light;
+  }
+}
+
+.info-label--bold {
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.info-value--fee {
+  font-size: $font-size-sm;
+}
+
+.info-value--fee-total {
+  font-weight: $font-weight-semibold;
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: $border-width-thin solid $color-border-light;
+  padding-top: $spacing-lg;
+  margin-top: $spacing-sm;
+}
+
+.total-label {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.total-amount {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+/* FX Conversion Styles */
+.conversion-section {
+  margin-top: $spacing-lg;
+  padding-top: $spacing-lg;
+  border-top: 2px solid $color-primary;
+}
+
+.conversion-loading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md;
+  background: rgba($color-primary, 0.05);
+  border-radius: $border-radius-md;
+}
+
+.conversion-result {
+  @include flex-column-gap($spacing-md);
+}
+
+.conversion-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-sm + 0.25rem 0;
+
+  &--total {
+    border-top: $border-width-thin solid $color-border-light;
+    padding-top: $spacing-md;
+    margin-top: $spacing-sm;
+  }
+}
+
+.conversion-label {
+  @include small-text;
+  font-weight: $font-weight-medium;
+
+  &--bold {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+  }
+}
+
+.conversion-value {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.conversion-amount {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+}
+
+.expiration-row {
+  padding: $spacing-md;
+  margin: $spacing-sm (-$spacing-sm) (-$spacing-sm);
+  border-radius: 0 0 $border-radius-md $border-radius-md;
+}
+
+.expiration-countdown {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+
+  &--warning {
+    color: $color-error;
+    animation: pulse 2s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .payment-title-wrapper {
+    align-items: flex-start;
+  }
+
+  .payment-logo {
+    height: 35px;
+  }
+
+  .info-row {
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  .info-value {
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .amount-display {
+    align-items: flex-start;
+  }
+}

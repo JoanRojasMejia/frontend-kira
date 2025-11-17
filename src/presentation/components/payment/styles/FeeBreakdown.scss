@@ -1,0 +1,150 @@
+@import '@/assets/styles/variables';
+@import '@/assets/styles/mixins';
+
+.fee-breakdown {
+  background: $color-gray-50;
+  border: $border-width-thin solid $color-border-light;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  margin-top: $spacing-lg;
+}
+
+.fee-breakdown__title {
+  margin: 0 0 $spacing-md 0;
+  @include heading($font-size-lg);
+}
+
+.fee-breakdown__loading {
+  @include flex-center;
+  gap: $spacing-sm + 0.25rem;
+  padding: $spacing-md;
+  @include body-text($font-size-sm);
+}
+
+.spinner {
+  @include spinner(16px, $color-info);
+}
+
+.fee-breakdown__error {
+  padding: $spacing-md;
+  background: $color-error-light;
+  border: $border-width-thin solid $color-error-border;
+  border-radius: $border-radius-sm;
+  color: $color-error;
+  font-size: $font-size-sm;
+
+  p {
+    margin: 0;
+  }
+}
+
+.fee-breakdown__content {
+  @include flex-column-gap($spacing-sm + 0.25rem);
+}
+
+.fee-breakdown__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-sm 0;
+}
+
+.fee-breakdown__label {
+  @include small-text;
+
+  &--final {
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-base;
+    color: $color-text-primary;
+  }
+}
+
+.fee-breakdown__value {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-gray-700;
+
+  &--fee {
+    color: $color-error;
+  }
+
+  &--final {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-info;
+  }
+}
+
+.fee-breakdown__rules {
+  @include flex-column-gap($spacing-sm);
+  padding: $spacing-sm + 0.25rem;
+  background: $color-white;
+  border-radius: $border-radius-sm;
+  border: $border-width-thin solid $color-border-light;
+}
+
+.fee-breakdown__rule {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-sm 0;
+}
+
+.fee-breakdown__rule-label {
+  @include flex-center;
+  gap: $spacing-sm;
+  font-size: $font-size-sm;
+  color: $color-gray-600;
+}
+
+.fee-breakdown__rule-icon {
+  font-size: $font-size-base;
+}
+
+.fee-breakdown__rule-value {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-error;
+}
+
+.fee-breakdown__divider {
+  height: 1px;
+  background: $color-border-light;
+  margin: $spacing-sm 0;
+}
+
+.fee-breakdown__row--total-fee {
+  padding-top: $spacing-sm + 0.25rem;
+}
+
+.fee-breakdown__row--final {
+  padding: $spacing-md;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-radius: $border-radius-sm;
+  margin-top: $spacing-sm;
+}
+
+.fee-breakdown__empty {
+  padding: $spacing-xl $spacing-md;
+  text-align: center;
+  color: $color-gray-400;
+  font-size: $font-size-sm;
+
+  p {
+    margin: 0;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .fee-breakdown {
+    padding: $spacing-md;
+  }
+
+  .fee-breakdown__title {
+    font-size: $font-size-base;
+  }
+
+  .fee-breakdown__value--final {
+    font-size: $font-size-lg;
+  }
+}

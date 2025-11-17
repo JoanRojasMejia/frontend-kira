@@ -1,0 +1,54 @@
+@import '@/assets/styles/variables';
+@import '@/assets/styles/mixins';
+
+.payment-view {
+  min-height: 100vh;
+  background: linear-gradient(30deg, $color-primary 0%, $color-black 50%, $color-primary 100%);
+  @include flex-center;
+  padding: $spacing-md;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  background: $color-white;
+  border-radius: $border-radius-xl;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+  @include flex-column;
+  min-height: 100%;
+}
+
+.payment-container {
+  padding: 0;
+  overflow: visible;
+  position: relative;
+  flex: 1;
+  @include flex-column;
+}
+
+.payment-container-inner {
+  @include flex-column;
+  position: relative;
+  overflow: visible;
+  @include flex-center;
+  min-height: 100%;
+
+  @include breakpoint($breakpoint-md) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .payment-view {
+    padding: $spacing-md $spacing-sm;
+  }
+
+  .payment-container {
+    padding: $spacing-lg;
+  }
+}
