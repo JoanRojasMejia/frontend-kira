@@ -1,9 +1,10 @@
 <div align="center">
+
 # Kira Payments Links Frontend
 
 A modern payment link management application built with Vue 3, TypeScript, and Clean Architecture.
 
-<img style="border-radius: 20px;" src="https://raw.githubusercontent.com/JoanRojasMejia/prueba-global66/refs/heads/main/public/screen-web.webp" />
+<img style="border-radius: 20px;" src="https://raw.githubusercontent.com/JoanRojasMejia/frontend-kira/refs/heads/main/public/preview.png">
 
 ![Vue.js](https://img.shields.io/badge/Vue.js-3.5-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
